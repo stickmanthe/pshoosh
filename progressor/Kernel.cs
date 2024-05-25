@@ -28,7 +28,7 @@ namespace progressor
                 Console.Clear();
                 Console.BackgroundColor = ConsoleColor.Gray;
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("  Welcome to Progressor Shoosh 0.1.1 Github version of May 2025  ");
+                Console.WriteLine("  Welcome to Progressor Shoosh 0.1.01 Github version of May 2024  ");
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Sys.FileSystem.VFS.VFSManager.RegisterVFS(fs);
