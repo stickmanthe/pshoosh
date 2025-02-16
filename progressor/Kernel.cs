@@ -18,7 +18,6 @@ namespace progressor
         public static string Dirc = @"0:\";
         Sys.FileSystem.CosmosVFS fs = new Cosmos.System.FileSystem.CosmosVFS();
 
-
         protected override void BeforeRun()
         {
             try
@@ -131,7 +130,7 @@ namespace progressor
                             Shooshg.BeforeRun();
                             if (Shooshg.Visib == true)
                             {
-                                for (; ; )
+                                for (;;)
                                 Shooshg.Run();
                             }
                         }
@@ -255,115 +254,5 @@ namespace progressor
                     break;
             }
         }
-
-        /*
-        private string ReadCommand()
-        {
-            cursorPosition = 0;
-            currentCommand.Clear();
-
-            ConsoleKeyInfo key;
-
-            do
-            {
-                key = Console.ReadKey(true);
-
-                switch (key.Key)
-                {
-                    case ConsoleKey.Backspace:
-                        if (cursorPosition > 0)
-                        {
-                            cursorPosition--;
-                            currentCommand.Remove(cursorPosition, 1);
-                            UpdateCommandText();
-                            UpdateCursorPosition();
-                        }
-                        break;
-
-                    case ConsoleKey.LeftArrow:
-                        if (cursorPosition > 0)
-                        {
-                            cursorPosition--;
-                            UpdateCursorPosition();
-                        }
-                        break;
-
-                    case ConsoleKey.RightArrow:
-                        if (cursorPosition < currentCommand.Length)
-                        {
-                            cursorPosition++;
-                            UpdateCursorPosition();
-                        }
-                        break;
-
-                    case ConsoleKey.UpArrow:
-                        cursorPosition = 0;
-                        NavigateCommandHistory(-1);
-                        break;
-
-                    case ConsoleKey.DownArrow:
-                        cursorPosition = 0;
-                        NavigateCommandHistory(1);
-                        break;
-
-                    default:
-                        if (!char.IsControl(key.KeyChar))
-                        {
-                            currentCommand.Insert(cursorPosition, key.KeyChar);
-                            cursorPosition++;
-                            UpdateCommandText();
-                            UpdateCursorPosition();
-                        }
-                        break;
-                }
-            } while (key.Key != ConsoleKey.Enter);
-
-            Console.WriteLine();
-            var command = currentCommand.ToString();
-            return command;
-        }
-
-        private void UpdateCommandText()
-        {
-            var cursorTop = Console.CursorTop;
-            var windowWidth = Console.WindowWidth;
-            Console.Write(new string(' ', windowWidth));
-            if (currentCommand.Length > windowWidth - 1)
-            {
-                currentCommand.Remove(windowWidth, currentCommand.Length - windowWidth);
-            }
-
-            Console.SetCursorPosition(1, cursorTop);
-            Console.Write(Dirc.Substring(1) + ">" + currentCommand.ToString());
-            Console.SetCursorPosition(Dirc.Length + cursorPosition, cursorTop);
-        }
-
-        private void UpdateCursorPosition()
-        {
-            Console.SetCursorPosition(Dirc.Length + cursorPosition + 1, Console.CursorTop);
-        }
-
-        private void NavigateCommandHistory(int offset)
-        {
-            var newIndex = commandIndex + offset;
-
-            if (newIndex >= 0 && newIndex < commandHistory.Count)
-            {
-                commandIndex = newIndex;
-                currentCommand.Clear();
-                currentCommand.Append(commandHistory[commandIndex]);
-                cursorPosition = currentCommand.Length;
-                UpdateCommandText();
-                UpdateCursorPosition();
-            }
-            else if (newIndex == commandHistory.Count)
-            {
-                commandIndex = newIndex;
-                currentCommand.Clear();
-                UpdateCommandText();
-                UpdateCursorPosition();
-            }
-        }
-        */
     }
 }
